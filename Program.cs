@@ -6,7 +6,10 @@ namespace csharp_network_stuff
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("hi valami");
+            for (int i = 0; i < 10; i++)
+            {
+                System.Console.WriteLine(i + " db kismalac jart itt! ");
+            }
         }
     }
 }
