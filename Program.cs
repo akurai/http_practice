@@ -6,7 +6,7 @@ namespace csharp_network_stuff
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("hi from continentalll");
+            Console.WriteLine("hi valami");
         }
     }
 }
