@@ -14,11 +14,13 @@ namespace MyLibrary
 
 
 
-            string filepath = "./myfile.html";
-            if(!File.Exists(filepath)){
-                File.Create(filepath);
+            string filepath = "./ignoredfiles/myfile.html";
+            string filedir = Path.GetDirectoryName(filepath);
+            if(!Directory.Exists(filedir)){
+                Directory.CreateDirectory(filedir);
             }
             File.WriteAllText(filepath,erkezett);
+            
             
 
             System.Console.WriteLine("******************************downloaded******************************");
