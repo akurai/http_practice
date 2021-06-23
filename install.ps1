@@ -1,3 +1,4 @@
+# curl "https://raw.githubusercontent.com/akurai/http_practice/main/install.ps1" > install.ps1
 cls
 if(Test-Path -Path './.git' -PathType Container ){
     if((Read-Host "!!!WARNING!!! this will delete all files in this directory! Continue? [y/n]") -eq "y"){
