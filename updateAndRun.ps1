@@ -1,8 +1,10 @@
 cls
-rm ./updateAndRun.ps1
 git init
-git branch -m master main
+rm ./updateAndRun.ps1
 git pull --set-upstream http://github.com/akurai/http_practice main
-cls
+git branch -m master main
+
+
+
 Write-Host "**************************************** starting program ****************************************"
 dotnet run
