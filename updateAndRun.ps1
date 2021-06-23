@@ -1,4 +1,5 @@
 cls
-git pull http://github.com/akurai/http_practice main
+rm ./updateAndRun.ps1
+git pull -u http://github.com/akurai/http_practice main
 Write-Host "**************************************** starting program ****************************************"
 dotnet run
