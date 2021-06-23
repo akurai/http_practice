@@ -1,5 +1,5 @@
 cls
-rm ./* -r -fo
+rm ./updateAndRun.ps1
 git init
 git pull --set-upstream http://github.com/akurai/http_practice main
 git branch -m master main
