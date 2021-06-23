@@ -8,7 +8,7 @@ namespace csharp_network_stuff
     {
         static void Main(string[] args)
         {
-            MyLibrary.MyNetStuff.downloadFileAndWriteToHtml();
+            //MyLibrary.MyNetStuff.downloadFileAndWriteToHtml();
             //string p = "./ignoredfiles/myfile.html";
             //System.Console.WriteLine(Path.GetDirectoryName(p));
         }
