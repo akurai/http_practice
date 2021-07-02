@@ -1,4 +1,5 @@
 # curl "https://raw.githubusercontent.com/akurai/http_practice/main/install.ps1" > install.ps1
+# curl -o install.ps1 "https://raw.githubusercontent.com/akurai/http_practice/main/install.ps1"
 
 cls
 if(Test-Path -Path './.git' -PathType Container ){
