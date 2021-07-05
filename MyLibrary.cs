@@ -12,23 +12,30 @@ namespace MyLibrary
             sr.Close();
             response.Close();
 
-
-
-            string filepath = "./ignoredfiles/myfile.html";
+            writeToFile(erkezett, "myfile.html");
+            
+            System.Console.WriteLine("******************************finished******************************");
+        }
+        public static void learnWebRequest(){
+            WebRequest request = WebRequest.Create("https://docs.microsoft.com");
+            request.Credentials = CredentialCache.DefaultCredentials;
+            WebResponse response = request.GetResponse();
+            System.Console.WriteLine(((HttpWebResponse) response).StatusDescription);
+            using (Stream datastream = response.GetResponseStream())
+            {
+                StreamReader reader = new StreamReader(datastream);
+                string responseFromServer = reader.ReadToEnd();
+                writeToFile(responseFromServer, "myfile2.html");
+            }
+            response.Close();
+        }
+        private static void writeToFile(string content, string fileName){
+            string filepath = "./ignoredfiles/" + fileName;
             string filedir = Path.GetDirectoryName(filepath);
             if(!Directory.Exists(filedir)){
                 Directory.CreateDirectory(filedir);
             }
-            File.WriteAllText(filepath,erkezett);
-            
-            
-
-            System.Console.WriteLine("******************************downloaded******************************");
-
-        }
-    
-        public static void learnWebRequest(){
-            System.Console.WriteLine("webrequest stuff");
+            File.WriteAllText(filepath,content);
         }
     }
 
