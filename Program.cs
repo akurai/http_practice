@@ -8,8 +8,8 @@ namespace csharp_network_stuff
     {
         static void Main(string[] args)
         {
-            MyLibrary.MyNetStuff.downloadFileAndWriteToHtml();
-
+            //MyLibrary.MyNetStuff.downloadFileAndWriteToHtml();
+            MyLibrary.MyNetStuff.learnWebRequest();
             
         }
     }

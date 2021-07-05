@@ -25,6 +25,12 @@ namespace MyLibrary
 
             System.Console.WriteLine("******************************downloaded******************************");
 
+        }
+    
+        public static void learnWebRequest(){
+            System.Console.WriteLine("webrequest stuff");
+        }
     }
-    }
+
+        
 }
