@@ -84,7 +84,6 @@ namespace MyLibrary
             // Close the response.
             response.Close();
         }
-    
         public static async Task<string> requestFromMoreSiteAsync(Uri[] uris){
             List<Task> requestList = new List<Task>();
             foreach(Uri uri in uris){
@@ -114,6 +113,9 @@ namespace MyLibrary
                 response.Close();
             });
             return uri;
+        }
+        public static void HostSerer(){
+            System.Console.WriteLine("lets host");
         }
     }
 
