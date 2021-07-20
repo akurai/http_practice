@@ -20,7 +20,7 @@ namespace MyLibrary
             System.Console.WriteLine("******************************finished******************************");
         }
         public static void learnWebRequest(){
-            WebRequest request = WebRequest.Create("https://docs.microsoft.com");
+            WebRequest request = WebRequest.Create("http://mxas006a/anti-doksik/assets/img");
             request.Credentials = CredentialCache.DefaultCredentials;
             WebResponse response = request.GetResponse();
             System.Console.WriteLine(((HttpWebResponse) response).StatusDescription);
@@ -76,7 +76,7 @@ namespace MyLibrary
                 // Read the content.
                 string responseFromServer = reader.ReadToEnd();
                 // Display the content.
-                Console.WriteLine(responseFromServer);
+                writeToFile(responseFromServer, "myfile2.html");
             }
 
             // Close the response.
