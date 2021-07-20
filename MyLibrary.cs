@@ -2,6 +2,8 @@ using System;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 
 namespace MyLibrary
@@ -20,7 +22,7 @@ namespace MyLibrary
             System.Console.WriteLine("******************************finished******************************");
         }
         public static void learnWebRequest(){
-            WebRequest request = WebRequest.Create("http://mxas006a/anti-doksik/assets/img");
+            WebRequest request = WebRequest.Create("https://www.youtube.com/");
             request.Credentials = CredentialCache.DefaultCredentials;
             WebResponse response = request.GetResponse();
             System.Console.WriteLine(((HttpWebResponse) response).StatusDescription);
@@ -81,6 +83,37 @@ namespace MyLibrary
 
             // Close the response.
             response.Close();
+        }
+    
+        public static async Task<string> requestFromMoreSiteAsync(Uri[] uris){
+            List<Task> requestList = new List<Task>();
+            foreach(Uri uri in uris){
+                System.Console.WriteLine(uri.DnsSafeHost);
+                requestList.Add(requestFromSiteAsync(uri));
+            }
+            while(requestList.Count > 0){
+                Task<Uri> finishedTask = (Task<Uri>) await Task.WhenAny(requestList);
+                System.Console.WriteLine(finishedTask.Result.DnsSafeHost + " finished downloading");
+                requestList.Remove(finishedTask);
+            }
+
+            // await requestFromSiteAsync(urls[0]);
+            System.Console.WriteLine("all request completed");
+            return "OK";
+        }
+        private static async Task<Uri> requestFromSiteAsync(Uri uri){
+            await Task.Run(() => {
+                WebRequest request = WebRequest.Create(uri);
+                WebResponse response = request.GetResponse();
+                System.Console.WriteLine(((HttpWebResponse) response).StatusDescription);
+                using (Stream datastream = response.GetResponseStream()){
+                    StreamReader sr = new StreamReader(datastream);
+                    string responseFromServer = sr.ReadToEnd();
+                    writeToFile(responseFromServer, uri.DnsSafeHost + ".html");
+                }
+                response.Close();
+            });
+            return uri;
         }
     }
 
